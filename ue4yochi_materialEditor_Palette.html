@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>UE4 ShaderYochi Material Editor Palette(atomsphere and color)</title>
+		<meta charset="utf-8">
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+			@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+			@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+			body { font-family: 'Droid Serif'; }
+			h1, h2, h3 {
+				font-family: 'Yanone Kaffeesatz';
+				font-weight: normal;
+			}
+			.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+		</style>
+		<style type="text/css">
+			.remark-code-line {
+			word-wrap: break-word;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea id="source">
+
+class: center, middle
+
+独りUE4Shader研究
+
+<img src="ue4_log.jpg" width="320px"  align="center">
+
+---
+
+<h1> 唐突だが、Shader書きたい！ </h1>
+
+<img src="Shader.jpg" width="640px"  align="center">
+
+### ということで、僕（オギ）は、今後UE4yochiで、UE4のshaderの研究をします。
+
+---
+# MaterialEditorYochi
+## トピック
+1. 参考資料
+1. MaterialEditorPalette研究
+---
+
+# 今回の参考資料
+* [Material Expression Reference](https://docs.unrealengine.com/latest/INT/Engine/Rendering/Materials/ExpressionReference/index.html)
+---
+
+## MaterialEditorのPaletteの一覧(UE4.14.0)
+
+|En|Ja|
+|:-------------------------|:-----------|
+| Atmosphere               | 雰囲気 |
+| Blends                   | ブレンド |
+| Color                    | 色 |
+| Constants                | 定数 |
+| Coordinates              | 座標 |
+| Cubemaps                 | キューブマップ |
+| Custom                   | カスタム |
+| Debug                    | デバッグ |
+| Foliage                  | 葉 |
+| Font                     | フォント |
+| Functions                | 機能 |
+| Get Post Precess Setting | ポスト・プリセス設定を取得する |
+| Gradient                 | 勾配 |
+| Image Adjustment         | 画像調整 |
+| Landscape                | 風景 |
+
+---
+
+|En|Ja|
+|:-------------------------|:-----------|
+| Lighting                 | 照明 |
+| Material Attributes      | マテリアルアトリビュート |
+| Material Layer Blend     | マテリアルレイヤブレンド |
+| Math                     | 数学 |
+| MAXScripts               | MAXScripts |
+| Misc                     | その他 |
+| Opacity                  | 不透明度 |
+| Parameters               | パラメーター |
+| Particles                | パーティクル |
+| Procedurals              | 手続き |
+| Reflecctions             | リフレクション |
+| Shading                  | シェーディング |
+| Speed Tree               | スピードツリー |
+| Texture                  | テクスチャ |
+| Texturing                | テクスチャリング |
+| Uncategorized            | 未分類 |
+| Utils                    | Utils |
+| Vector Ops               | ベクトル操作 |
+| Vectors                  | ベクトル |
+| VFX                      | VFX |
+| World Postion Offset     | 世界の位置オフセット |
+---
+
+## Atmosphere Expressions
+[リファレンス](https://docs.unrealengine.com/latest/INT/Engine/Rendering/Materials/ExpressionReference/Atmosphere/)
+---
+
+### 初期状態
+<img src="./MaterialEditorPalette/Atmosphere/initeal_state.PNG" width="600px"  align="center">
+---
+
+### atomsphereForColor追加
+<img src="./MaterialEditorPalette/Atmosphere/state0_atomsphereForColor.PNG" width="600px"  align="center">
+---
+
+### multiply追加
+<img src="./MaterialEditorPalette/Atmosphere/state1_multiply.PNG" width="600px"  align="center">
+---
+
+### Sbtract_Constant追加
+<img src="./MaterialEditorPalette/Atmosphere/state2_Sbtract_Constant.PNG" width="600px"  align="center">
+---
+
+### WorldPositionとCameraPosition追加
+<img src="./MaterialEditorPalette/Atmosphere/state3_WorldPosition_cameraPosition.PNG" width="600px"  align="center">
+
+<em>AbsoluteWorldPostion</em>は<b>WorldPosition</b>で検索すれば出てくる.
+---
+
+### LevelSettingの追加
+<img src="./MaterialEditorPalette/Atmosphere/state4_LevelSetting.PNG" width="600px"  align="center">
+カメラの位置で、物体の色が変化する(Fogが変化)
+---
+# 実装！！！！！！！
+---
+## Color
+
+[リファレンス](https://docs.unrealengine.com/latest/INT/Engine/Rendering/Materials/ExpressionReference/Color/index.html)
+---
+
+### 初期状態
+<img src="./MaterialEditorPalette/Color/initealstate.PNG" width="600px"  align="center">
+---
+
+### TextureSmapleとConstentとDesaturation追加
+<img src="./MaterialEditorPalette/Color/state0_TextureSmaple_constent_desaturation.PNG" width="600px"  align="center">
+---
+# 実装！！！！！！！
+---
+二つわせてさらに実装!
+# 実装！！！！！！！
+---
+
+		</textarea>
+		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+		</script>
+		<script>
+			var slideshow = remark.create({
+				ratio: '16:9'
+			});
+		</script>
+	</body>
+</html>
